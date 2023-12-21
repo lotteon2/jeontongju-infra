@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-deployment
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: config-service
+  template:
+    metadata:
+      name: config-pod
+      labels:
+        app: config-service
+    spec:
+      containers:
+        - image: jtg/config:latest
+          imagePullPolicy: Always
+          name: config-service
+          ports:
+            - containerPort: 8888

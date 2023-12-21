@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway-deployment
+  namespace: prod
+  labels:
+    app: api-gateway-service
+spec:
+  selector:
+    matchLabels:
+      app: api-gateway-service
+  replicas: 1
+  template:
+    metadata:
+      name: api-gateway-pod
+      labels:
+        app: api-gateway-service
+    spec:
+      containers:
+        - name: api-gateway-service
+          image: jtg/api-gateway:latest
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Always
