@@ -4,7 +4,7 @@ metadata:
   name: config-service
   namespace: prod
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - targetPort: 8888
       port: 8888

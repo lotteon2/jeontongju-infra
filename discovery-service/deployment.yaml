@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: discovery-service
-          image: jtg/discovery:latest
+          image: ${REPOSITORY_URI}/jeontongju-discovery-service
           ports:
             - containerPort: 8761
           imagePullPolicy: Always

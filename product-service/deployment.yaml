@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auction-deployment
+  name: product-deployment
   namespace: prod
   labels:
-    app: auction-service
+    app: product-service
 spec:
   selector:
     matchLabels:
-      app: auction-service
+      app: product-service
   replicas: 1
   template:
     metadata:
-      name: auction-pod
+      name: product-pod
       labels:
-        app: auction-service
+        app: product-service
     spec:
       containers:
-        - name: auction-service
-          image: ${REPOSITORY_URI}/jeontongju-auction-service
+        - name: product-service
+          image: ${REPOSITORY_URI}/jeontongju-product-service
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

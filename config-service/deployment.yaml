@@ -15,7 +15,7 @@ spec:
         app: config-service
     spec:
       containers:
-        - image: jtg/config:latest
+        - image: ${REPOSITORY_URI}/jeontongju-config-service
           imagePullPolicy: Always
           name: config-service
           ports:

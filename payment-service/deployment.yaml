@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auction-deployment
+  name: payment-deployment
   namespace: prod
   labels:
-    app: auction-service
+    app: payment-service
 spec:
   selector:
     matchLabels:
-      app: auction-service
+      app: payment-service
   replicas: 1
   template:
     metadata:
-      name: auction-pod
+      name: payment-pod
       labels:
-        app: auction-service
+        app: payment-service
     spec:
       containers:
-        - name: auction-service
-          image: ${REPOSITORY_URI}/jeontongju-auction-service
+        - name: payment-service
+          image: ${REPOSITORY_URI}/jeontongju-payment-service
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

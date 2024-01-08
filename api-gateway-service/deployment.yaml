@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: api-gateway-service
-          image: jtg/api-gateway:latest
+          image: ${REPOSITORY_URI}/jeontongju-api-gateway-service
           ports:
             - containerPort: 8000
           imagePullPolicy: Always

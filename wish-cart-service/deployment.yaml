@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auction-deployment
+  name: wish-cart-deployment
   namespace: prod
   labels:
-    app: auction-service
+    app: wish-cart-service
 spec:
   selector:
     matchLabels:
-      app: auction-service
+      app: wish-cart-service
   replicas: 1
   template:
     metadata:
-      name: auction-pod
+      name: wish-cart-pod
       labels:
-        app: auction-service
+        app: wish-cart-service
     spec:
       containers:
-        - name: auction-service
-          image: ${REPOSITORY_URI}/jeontongju-auction-service
+        - name: wish-cart-service
+          image: ${REPOSITORY_URI}/jeontongju-wish-cart-service
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

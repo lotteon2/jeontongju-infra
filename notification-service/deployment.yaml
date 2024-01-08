@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auction-deployment
+  name: notification-deployment
   namespace: prod
   labels:
-    app: auction-service
+    app: notification-service
 spec:
   selector:
     matchLabels:
-      app: auction-service
+      app: notification-service
   replicas: 1
   template:
     metadata:
-      name: auction-pod
+      name: notification-pod
       labels:
-        app: auction-service
+        app: notification-service
     spec:
       containers:
-        - name: auction-service
-          image: ${REPOSITORY_URI}/jeontongju-auction-service
+        - name: notification-service
+          image: ${REPOSITORY_URI}/jeontongju-notification-service
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
