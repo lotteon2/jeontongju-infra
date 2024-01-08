@@ -25,10 +25,6 @@ spec:
       containers:
         - name: order-service
           image: ${REPOSITORY_URI}/jeontongju-order-service
-          resources:
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

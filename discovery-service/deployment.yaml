@@ -25,10 +25,6 @@ spec:
       containers:
         - name: discovery-service
           image: ${REPOSITORY_URI}/jeontongju-discovery-service
-          resources:
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
           ports:
             - containerPort: 8761
           imagePullPolicy: Always
