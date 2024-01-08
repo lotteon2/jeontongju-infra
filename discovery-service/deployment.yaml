@@ -6,6 +6,12 @@ metadata:
   labels:
     app: discovery-service
 spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  minReadySeconds: 10
   selector:
     matchLabels:
       app: discovery-service
@@ -22,3 +28,17 @@ spec:
           ports:
             - containerPort: 8761
           imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 2
