@@ -26,9 +26,6 @@ spec:
         - name: authentication-service
           image: ${REPOSITORY_URI}/jeontongju-authentication-service
           resources:
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
             limits:
               memory: "512Mi"
               cpu: "500m"
