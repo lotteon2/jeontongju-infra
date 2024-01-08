@@ -1,3 +1,5 @@
 env.yaml
 **docker-compose.yml
 **ingress.yaml
+apply_script.sh
+delete_script.sh
