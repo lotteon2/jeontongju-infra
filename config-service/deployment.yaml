@@ -21,7 +21,7 @@ spec:
         app: config-service
     spec:
       containers:
-        - image: ${REPOSITORY_URI}/jeontongju-config-service
+        - image: ${REPOSITORY_URI}/jeontongju-config-service:${IMAGE_TAG}
           imagePullPolicy: Always
           name: config-service
           ports:

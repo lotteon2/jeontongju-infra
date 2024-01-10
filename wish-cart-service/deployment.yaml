@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: wish-cart-service
-          image: ${REPOSITORY_URI}/jeontongju-wish-cart-service
+          image: ${REPOSITORY_URI}/jeontongju-wish-cart-service:${IMAGE_TAG}
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

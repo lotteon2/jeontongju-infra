@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: search-service
-          image: ${REPOSITORY_URI}/jeontongju-search-service
+          image: ${REPOSITORY_URI}/jeontongju-search-service:${IMAGE_TAG}
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

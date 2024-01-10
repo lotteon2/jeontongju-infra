@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: ${REPOSITORY_URI}/jeontongju-order-service
+          image: ${REPOSITORY_URI}/jeontongju-order-service:${IMAGE_TAG}
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

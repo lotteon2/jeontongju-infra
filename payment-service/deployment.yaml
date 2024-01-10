@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: payment-service
-          image: ${REPOSITORY_URI}/jeontongju-payment-service
+          image: ${REPOSITORY_URI}/jeontongju-payment-service:${IMAGE_TAG}
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: auction-service
-          image: ${REPOSITORY_URI}/jeontongju-auction-service
+          image: ${REPOSITORY_URI}/jeontongju-auction-service:${IMAGE_TAG}
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

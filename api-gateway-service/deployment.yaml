@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: api-gateway-service
-          image: ${REPOSITORY_URI}/jeontongju-api-gateway-service
+          image: ${REPOSITORY_URI}/jeontongju-api-gateway-service:${IMAGE_TAG}
           ports:
             - containerPort: 8000
           imagePullPolicy: Always

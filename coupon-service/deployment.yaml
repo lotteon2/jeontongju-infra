@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: coupon-service
-          image: ${REPOSITORY_URI}/jeontongju-coupon-service
+          image: ${REPOSITORY_URI}/jeontongju-coupon-service:${IMAGE_TAG}
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: product-service
-          image: ${REPOSITORY_URI}/jeontongju-product-service
+          image: ${REPOSITORY_URI}/jeontongju-product-service:${IMAGE_TAG}
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

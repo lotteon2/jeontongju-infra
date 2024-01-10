@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: discovery-service
-          image: ${REPOSITORY_URI}/jeontongju-discovery-service
+          image: ${REPOSITORY_URI}/jeontongju-discovery-service:${IMAGE_TAG}
           ports:
             - containerPort: 8761
           imagePullPolicy: Always
