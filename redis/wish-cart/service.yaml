@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-wish-cart-service
+  namespace: prod
+  labels:
+    app: redis-wish-cart
+spec:
+  ports:
+    - port: 6379
+  clusterIP: None
+  selector:
+    app: redis-wish-cart
