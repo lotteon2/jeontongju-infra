@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: order-batch-settlement-pod
+  namespace: prod
+  labels:
+    app: order-batch-settlement-service
+spec:
+  restartPolicy: Never
+  containers:
+    - name: order-batch-settlement-service
+      image: ${REPOSITORY_URI}/jeontongju-order-batch-settlement-service:${IMAGE_TAG}
+      ports:
+        - containerPort: 8080
+      imagePullPolicy: Always

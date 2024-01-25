@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grade-batch-service
+  namespace: prod
+  labels:
+    app: grade-batch-service
+spec:
+  restartPolicy: Never
+  containers:
+    - name: grade-batch-service
+      image: ${REPOSITORY_URI}/jeontongju-grade-batch-service:${IMAGE_TAG}
+      ports:
+        - containerPort: 8080
+      imagePullPolicy: Always
