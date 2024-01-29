@@ -94,7 +94,7 @@ Parameters:
   WorkerNodeCount:
     Description: Worker Node Counts
     Type: String
-    Default: 5
+    Default: 6
   WorkerNodeVolumesize:
     Description: Worker Node Volumes size
     Type: String

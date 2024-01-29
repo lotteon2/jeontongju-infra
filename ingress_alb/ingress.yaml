@@ -1,0 +1,95 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-alb
+  namespace: prod
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/load-balancer-name: jeontongju-alb
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80},{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/certificate-arn: ${CRETARN}
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+spec:
+  rules:
+    - host: api.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api-gateway-service
+                port:
+                  number: 8000
+    - host: discovery.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: discovery-service
+                port:
+                  number: 8761
+    - host: prometheus.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-operated
+                port:
+                  number: 9090
+    - host: grafana.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kube-prometheus-stack-grafana
+                port:
+                  number: 80
+    - host: zipkin.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: zipkin-service
+                port:
+                  number: 9411
+    - host: config.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: config-service
+                port:
+                  number: 8888
+    - host: opsview.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kube-ops-view
+                port:
+                  number: 8080
+    - host: kafdrop.jeontongju.shop
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kafdrop
+                port:
+                  number: 9000
